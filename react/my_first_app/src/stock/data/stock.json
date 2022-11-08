@@ -1,0 +1,16 @@
+[
+
+    {
+        "companyName": "Tesla",
+        "stockPrice": 188.14
+    },
+    {
+        "companyName": "Facebook",
+        "stockPrice": 95.46
+    },
+    {
+        "companyName":"Google",
+        "stockPrice":100
+    }
+
+]

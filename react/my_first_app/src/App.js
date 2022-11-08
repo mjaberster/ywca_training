@@ -1,12 +1,33 @@
 import React from "react";
-import AgendaList from "./agenda/AgendaList";
+import StudentsAvgList from "./avg/StudentsAvgList";
 import Stock from "./stock/Stock";
-import StudentsList from "./students/StudentsList";
+import Welcome from "./WelcomeComp/Welcome";
 
 function App() {
+
+  const students = [
+
+    {
+      "studentName": "Firas",
+      "avg": 95
+    },
+
+    {
+      "studentName": "Ahmad",
+      "avg": 79
+    },
+
+    {
+      "studentName": "Hasan",
+      "avg": 68
+    },
+  ]
+
+
   return (
     <React.Fragment>
-      <Stock />
+      <Welcome studentName="Farah"/>
+      <StudentsAvgList students={students} />
     </React.Fragment>
   );
 }

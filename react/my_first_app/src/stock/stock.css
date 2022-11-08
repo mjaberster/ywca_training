@@ -9,15 +9,7 @@
   .d-table ul {
     list-style-type: none;
   }
-  
-  .d-column li {
-    padding: 0px;
-    display: inline-block;
-    border: 1px solid blue;
-    background: grey;
-    width: 200px;
-    height: 20px;
-  }
+
   
   .d-row li {
     padding: 0px;
@@ -28,3 +20,12 @@
     height: 20px;
   }
   
+
+  .d-column li {
+    padding: 0px;
+    display: inline-block;
+    border: 1px solid blue;
+    background: grey;
+    width: 200px;
+    height: 20px;
+  }

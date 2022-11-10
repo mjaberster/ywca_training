@@ -1,7 +1,8 @@
 import React from "react";
-import StudentsAvgList from "./avg/StudentsAvgList";
-import Stock from "./stock/Stock";
-import Welcome from "./WelcomeComp/Welcome";
+// import StudentsAvgList from "./avg/StudentsAvgList";
+import Calculator from "./calculator/Calculator";
+// import Counter from "./Counter/Counter";
+// import Welcome from "./WelcomeComp/Welcome";
 
 function App() {
 
@@ -26,8 +27,10 @@ function App() {
 
   return (
     <React.Fragment>
-      <Welcome studentName="Farah"/>
-      <StudentsAvgList students={students} />
+      {/* <Welcome studentName="Farah" /> */}
+      {/* <StudentsAvgList students={students} /> */}
+      {/* <Counter /> */}
+      <Calculator />
     </React.Fragment>
   );
 }

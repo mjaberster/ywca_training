@@ -2,6 +2,10 @@ import React from "react";
 import './students_list.css'
 const StudentsList = (props) => {
 
+    const onDeleteClicked = (e) => {
+        props.onDelete({ studentId: e.target.value })
+    }
+
     return (
         <div className="table">
             <div className="header">
@@ -14,6 +18,9 @@ const StudentsList = (props) => {
                     <div className="row">
                         <div className="cell">{s.studentId}</div>
                         <div className="cell">{s.studentName}</div>
+                        <div className="cell">
+                            <button onClick={onDeleteClicked} value={s.studentId}>X</button>
+                        </div>
                     </div>
                 </div>
             )}

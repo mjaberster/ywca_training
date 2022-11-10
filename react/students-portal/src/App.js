@@ -7,7 +7,7 @@ import StudentsList from './components/list/StudentsList';
 function App() {
 
   const [students, setStudents] = useState([])
-  const studentsArr = [...students]
+  let studentsArr = [...students]
 
   const studentCreated = (student) => {
     studentsArr.push(student)
@@ -15,11 +15,18 @@ function App() {
     setStudents(studentsArr)
   }
 
+  const studentDeleted = (student) => {
+
+    studentsArr = studentsArr.filter(s => s.studentId !== student.studentId)
+    console.log("deleted " + studentsArr)
+    setStudents(studentsArr)
+  }
+
 
   return (
     <>
       <AddStudent onAdd={studentCreated} />
-      <StudentsList students={students} />
+      <StudentsList students={students} onDelete={studentDeleted} />
     </>
   )
 }

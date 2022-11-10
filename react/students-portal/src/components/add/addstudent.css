@@ -1,0 +1,29 @@
+label {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: x-large;
+}
+
+.section {
+    padding-left: 10rem;
+    padding-top: 5rem;
+}
+
+.input_field {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    height: 40px;
+    border-top-width: 5px;
+    border-block-color: blue;
+}
+
+button {
+    height: 40px;
+    margin-left: 1rem;
+    font-size: x-large;
+    color: wheat;
+    background-color: blue;
+}

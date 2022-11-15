@@ -19,6 +19,18 @@ const Calculator = () => {
         setZVal(xVal + yVal)
     }
 
+    const Subtract = (e) => {
+        setZVal(xVal - yVal)
+    }
+
+    const Multiply = (e) => {
+        setZVal(xVal * yVal)
+    }
+
+    const Divide = (e) => {
+        setZVal(xVal / yVal)
+    }
+
 
     return (
         <>
@@ -27,9 +39,9 @@ const Calculator = () => {
             <label>Y: </label><input id="yTextVal" type="text" value={yVal} onChange={changeYTextValue} /><br />
 
             <input type="button" value="+" onClick={Add} />
-            <input type="button" value="-" />
-            <input type="button" value="*" />
-            <input type="button" value="/" />
+            <input type="button" value="-" onClick={Subtract}/>
+            <input type="button" value="*" onClick={Multiply}/>
+            <input type="button" value="/" onClick={Divide}/>
 
             <label>The answer is: {zVal}</label>
 

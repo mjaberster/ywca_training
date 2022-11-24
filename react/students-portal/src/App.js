@@ -35,9 +35,14 @@ const App = () => {
     setShow(!show)
   }
 
+  const showLogin = () => {
+    console.log("Clicked!")
+    setShow(true)
+  }
+
   return (
     <Router>
-      <MainNavigation />
+      <MainNavigation showLogin={showLogin} />
       <main>
         <Routes>
           <Route path='/' element={
@@ -56,13 +61,10 @@ const App = () => {
             <Student />
           } />
 
-          <Route path='/auth' element={<Login show closeModal={onCloseModal} />} />
-
-
-
           <Route path='*' element={<Error />} />
 
         </Routes>
+        <Login show={show} closeModal={onCloseModal} />
       </main>
     </Router>
   )

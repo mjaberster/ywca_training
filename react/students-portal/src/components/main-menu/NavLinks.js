@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
 
-const NavLinks = props => {
+const NavLinks = ({ showLogin }) => {
 
     return <ul className="nav-links">
         <li>
-            <NavLink to="/" exact>Home</NavLink>
+            <NavLink end to="/">Home</NavLink>
         </li>
         <li>
             <NavLink to="/students">Students</NavLink>
@@ -16,7 +16,7 @@ const NavLinks = props => {
             <NavLink to="/course">Courses</NavLink>
         </li>
         <li>
-            <NavLink to="/auth">LOGIN</NavLink>
+            <button onClick={showLogin}>LOGIN</button>
         </li>
     </ul>
 };

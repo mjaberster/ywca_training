@@ -7,12 +7,12 @@ import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
 
-const MainNavigation = props => {
+const MainNavigation = ({ showLogin }) => {
 
   return (
     <React.Fragment>
       <nav className="main-navigation__drawer-nav">
-        <NavLinks />
+        <NavLinks showLogin={showLogin} />
       </nav>
 
       <MainHeader>

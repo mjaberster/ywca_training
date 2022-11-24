@@ -1,0 +1,132 @@
+[
+    {
+        "studentId": "111111",
+        "studentName": "Mo Hasan",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 2,
+                "course_name": "Mobile development"
+            },
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111112",
+        "studentName": "Hashem Abuteen",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111113",
+        "studentName": "Maryam",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 2,
+                "course_name": "Mobile development"
+            }
+        ]
+    },
+    {
+        "studentId": "111114",
+        "studentName": "Moataz",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            }
+        ]
+    },
+    {
+        "studentId": "111115",
+        "studentName": "Mo Hamodeh",
+        "courses": [
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111116",
+        "studentName": "Aseel",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 2,
+                "course_name": "Mobile development"
+            },
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111117",
+        "studentName": "Noor",
+        "courses": [
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111118",
+        "studentName": "Sara",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 2,
+                "course_name": "Mobile development"
+            },
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    },
+    {
+        "studentId": "111119",
+        "studentName": "Farah",
+        "courses": [
+            {
+                "courseId": 1,
+                "course_name": "full stack"
+            },
+            {
+                "courseId": 2,
+                "course_name": "Mobile development"
+            },
+            {
+                "courseId": 3,
+                "course_name": "Software Engineering"
+            }
+        ]
+    }
+]

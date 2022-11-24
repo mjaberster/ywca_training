@@ -9,6 +9,7 @@ import Error from './components/error/Error';
 import MainNavigation from './components/main-menu/MainNavigation';
 import Student from './components/students/Student';
 import data from './data/students.json'
+import Login from './components/auth/login';
 
 const App = () => {
 
@@ -49,6 +50,10 @@ const App = () => {
           <Route path="/students/:studentId" element={
             <Student />
           } />
+
+          <Route path='/auth' element={<Login />} />
+
+
 
           <Route path='*' element={<Error />} />
 

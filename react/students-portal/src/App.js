@@ -29,6 +29,11 @@ const App = () => {
     setStudents(studentsArr)
   }
 
+  const [show, setShow] = useState(false)
+
+  const onCloseModal = () => {
+    setShow(!show)
+  }
 
   return (
     <Router>
@@ -51,7 +56,7 @@ const App = () => {
             <Student />
           } />
 
-          <Route path='/auth' element={<Login />} />
+          <Route path='/auth' element={<Login show closeModal={onCloseModal} />} />
 
 
 

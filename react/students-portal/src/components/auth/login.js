@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
-export default function Login() {
+export default function Login({ show, closeModal }) {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
 

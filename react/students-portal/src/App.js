@@ -10,6 +10,9 @@ import MainNavigation from './components/main-menu/MainNavigation';
 import Student from './components/students/Student';
 import data from './data/students.json'
 import Login from './components/auth/login';
+import MoveMouse from './moveMouse';
+import SignIn from './components/auth/SignIn';
+import CConverter from './components/currency-convert/CConverter';
 
 const App = () => {
 
@@ -41,32 +44,36 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <MainNavigation showLogin={showLogin} />
-      <main>
-        <Routes>
-          <Route path='/' element={
-            <Home>
-              <h1>Welcome to my site</h1>
-            </Home>
-          } />
-          <Route path='/students' element={
-            <>
-              <AddStudent onAdd={studentCreated} />
-              <StudentsList students={students} onDelete={studentDeleted} />
-            </>
-          } />
+    // <Router>
+    //   <MainNavigation showLogin={showLogin} />
+    //   <main>
+    //     <Routes>
+    //       <Route path='/' element={
+    //         <Home>
+    //           <h1>Welcome to my site</h1>
+    //         </Home>
+    //       } />
+    //       <Route path='/students' element={
+    //         <>
+    //           <AddStudent onAdd={studentCreated} />
+    //           <StudentsList students={students} onDelete={studentDeleted} />
+    //         </>
+    //       } />
 
-          <Route path="/students/:studentId" element={
-            <Student />
-          } />
+    //       <Route path="/students/:studentId" element={
+    //         <Student />
+    //       } />
 
-          <Route path='*' element={<Error />} />
+    //       <Route path='*' element={<Error />} />
 
-        </Routes>
-        <Login show={show} closeModal={onCloseModal} />
-      </main>
-    </Router>
+    //     </Routes>
+    //     <Login show={show} closeModal={onCloseModal} />
+    //   </main>
+    // </Router>
+    <div>
+      <CConverter />
+    </div>
+
   )
 }
 

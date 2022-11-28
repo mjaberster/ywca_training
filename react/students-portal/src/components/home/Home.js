@@ -8,7 +8,7 @@ const Home = (props) => {
     }
 
     const changeToWhite = () => {
-        divRef.current.style.backgroundColor = "white"
+        divRef.current.backgroundColor = "white"
     }
 
     return <>
@@ -16,7 +16,6 @@ const Home = (props) => {
             onMouseOver={changeToRed}
             onMouseOut={changeToWhite}
         >
-            أثممخ
         </div>
         {props.children}
     </>

@@ -17,7 +17,7 @@ export default function Login({ show, closeModal }) {
         setPassword(e.target.value)
     }
 
-    return ReactDOM.createPortal(
+    return (
         <div className="modal">
             <div className="overlay" onClick={closeModal}></div>
             <div className="content">
@@ -35,5 +35,5 @@ export default function Login({ show, closeModal }) {
                 </div>
             </div>
         </div>
-        , document.getElementById("modal"))
-}
+    )
+}               

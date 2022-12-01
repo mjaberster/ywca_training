@@ -35,5 +35,5 @@ export default function Login({ show, closeModal }) {
                 </div>
             </div>
         </div>
-    )
+        , document.getElementById("modal"))
 }               

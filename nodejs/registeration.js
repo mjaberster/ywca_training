@@ -1,4 +1,6 @@
 const fs = require('fs')
+const data_location = './data'
+
 const register = (studentId, studentName, courses) => {
 
     const files = fs.readdirSync('./data')
@@ -9,7 +11,7 @@ const register = (studentId, studentName, courses) => {
 
     const registerdCourses = []
     for (c of courses) {
-        if (c.paid === false) {
+        if (c.paid === false || c.paid === "false") {
             console.log(`student ${studentName} has to pay for course ${c.courseName}`)
             continue;
         }
@@ -21,7 +23,18 @@ const register = (studentId, studentName, courses) => {
         courses: registerdCourses
     }
 
-    fs.writeFileSync(`./data/s_${studentId}.json`, JSON.stringify(studentObj))
+    fs.writeFileSync(`${data_location}/s_${studentId}.json`, JSON.stringify(studentObj))
 }
 
-module.exports = register
+const unregister = (studentId) => {
+    const deletedFile = `${data_location}/s_${studentId}.json`
+    const files = fs.readdirSync('./data')
+    if (files.includes(`s_${studentId}.json`)) {
+        fs.unlink(deletedFile, (e) => console.log(e))
+        console.log(`Student ${studentId} deleted`)
+        return
+    }
+    console.log('Not found')
+}
+
+module.exports = { register, unregister }

@@ -1,8 +1,10 @@
 const fs = require('fs')
-const register = require('./register.js')
+const { register, unregister } = require('./registeration.js')
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+
 
 const data_location = './data'
-const registration_location = './registration'
 
 const files = fs.readdirSync(data_location)
 files.forEach(f => {
@@ -20,10 +22,29 @@ files.forEach(f => {
 })
 
 
-const registrationFiles = fs.readdirSync(registration_location)
-registrationFiles.forEach(f => {
-    const file = fs.readFileSync(`${registration_location}/${f}`)
-    const student = JSON.parse(file)
-    register(student.studentId, student.studentName, student.courses)
-})
+// const registrationFiles = fs.readdirSync(registration_location)
+// registrationFiles.forEach(f => {
+//     const file = fs.readFileSync(`${registration_location}/${f}`)
+//     const student = JSON.parse(file)
+//     register(student.studentId, student.studentName, student.courses)
+// })
 
+
+const argv = yargs(hideBin(process.argv)).argv
+const operation = argv.operation
+const studentId = argv.studentId
+const studentName = argv.studentName
+const courseId = argv.courseId
+const courseName = argv.courseName
+const paid = argv.paid
+
+switch (operation) {
+    case "register":
+        register(studentId, studentName, [{ courseId, courseName, paid }])
+        break
+    case 'unregister':
+        unregister(studentId)
+        break
+    default:
+        console.log('Unsupported operation')
+}

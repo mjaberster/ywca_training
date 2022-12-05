@@ -1,7 +1,7 @@
-const notes = require('./notes.js')
+const appendNote = require('./notes.js')
 
 const from = "Ali"
 const message = "Ok"
 
-notes.appendNote(from, message)
+appendNote(from, message)
 

@@ -1,4 +1,5 @@
 const fs = require('fs')
+
 const notesFileLoction = './data/notes.json'
 
 let id = 0

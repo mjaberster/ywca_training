@@ -1,0 +1,16 @@
+{
+    "studentId": 6543,
+    "studentName": "Mhmd hasan",
+    "courses": [
+        {
+            "courseId": "crs1",
+            "courseName": "Full stack",
+            "paid": false
+        },
+        {
+            "courseId": "crs10",
+            "courseName": "Algorithms",
+            "paid": true
+        }
+    ]
+}

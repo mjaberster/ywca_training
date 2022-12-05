@@ -1,0 +1,21 @@
+{
+    "studentId": 67467,
+    "studentName": "Lina",
+    "courses": [
+        {
+            "courseId": "crs1",
+            "courseName": "Full stack",
+            "paid": true
+        },
+        {
+            "courseId": "crs2",
+            "courseName": "Java 1",
+            "paid": true
+        },
+        {
+            "courseId": "crs3",
+            "courseName": "Data structure",
+            "paid": false
+        }
+    ]
+}

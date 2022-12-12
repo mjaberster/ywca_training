@@ -7,10 +7,11 @@ const { hideBin } = require('yargs/helpers')
 const data_location = './data'
 try {
     const files = fs.readdirSync(data_location)
-
+    debugger
     files.forEach(f => {
         const data = fs.readFileSync(`${data_location}/${f}`)
         const student = JSON.parse(data)
+        debugger
         console.log("---");
         console.log(`Student ID: ${student.studentId}`)
         console.log(`Student Name: ${student.studentName}`)
@@ -20,6 +21,7 @@ try {
             console.log(` Course Name: ${c.courseName}`)
             console.log(` Paid: ${c.paid}`)
         })
+
     })
 } catch (err) {
     console.log('An error has occured while trying to read the directory, please try again later')
@@ -43,14 +45,20 @@ const studentName = argv.studentName
 const courseId = argv.courseId
 const courseName = argv.courseName
 const paid = argv.paid
-
-switch (operation) {
-    case "register":
-        register(studentId, studentName, [{ courseId, courseName, paid }])
-        break
-    case 'unregister':
-        unregister(studentId)
-        break
-    default:
-        console.log('Unsupported operation')
+debugger
+try {
+    switch (operation) {
+        case "register":
+            register(studentId, studentName, [{ courseId, courseName, paid }])
+            break
+        case 'unregister':
+            unregister(studentId)
+            break
+        default:
+            throw new Error("Unsupported operation")
+    }
+} catch (e) {
+    console.log(e.message)
 }
+
+

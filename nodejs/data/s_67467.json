@@ -1,1 +1,16 @@
-{"studentId":67467,"studentName":"Lina","courses":[{"courseId":"crs1","courseName":"Full stack","paid":true},{"courseId":"crs2","courseName":"Java 1","paid":true}]}
+{
+    "studentId": 67467,
+    "studentName": "Lina",
+    "courses": [
+        {
+            "courseId": "crs1",
+            "courseName": "Full stack",
+            "paid": true
+        },
+        {
+            "courseId": "crs2",
+            "courseName": "Java 1",
+            "paid": true
+        }
+    ]
+}

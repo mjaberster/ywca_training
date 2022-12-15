@@ -1,1 +1,35 @@
-[{"note_id":1,"writer":"Hashim","message":"I will be late"},{"note_id":2,"from":"hamam","message":"Hello"},{"note_id":3,"from":"Ali","message":"welcome"},{"note_id":4},{"note_id":5,"from":"Ali","message":"welcome"},{"note_id":6,"from":"hamada","message":"bla bla"},{"note_id":7,"from":"jamal","message":"Let's have a break"},{"note_id":8,"from":"5","message":"Ahmad"}]
+[
+    {
+        "note_id": 1,
+        "writer": "Hashim",
+        "message": "I will be late"
+    },
+    {
+        "note_id": 2,
+        "from": "hamam",
+        "message": "Hello"
+    },
+    {
+        "note_id": 3,
+        "from": "Ali",
+        "message": "welcome"
+    },
+    {
+        "note_id": 4
+    },
+    {
+        "note_id": 5,
+        "from": "Ali",
+        "message": "welcome"
+    },
+    {
+        "note_id": 6,
+        "from": "hamada",
+        "message": "bla bla"
+    },
+    {
+        "note_id": 7,
+        "from": "jamal",
+        "message": "Let's have a break"
+    }
+]

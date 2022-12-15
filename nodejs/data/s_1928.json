@@ -1,1 +1,11 @@
-{"studentId":"1928","studentName":"Tamam","courses":[{"courseId":"crs1","courseName":"Fullstack","paid":true}]}
+{
+    "studentId": "1928",
+    "studentName": "Tamam",
+    "courses": [
+        {
+            "courseId": "crs1",
+            "courseName": "Fullstack",
+            "paid": true
+        }
+    ]
+}

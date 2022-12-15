@@ -1,12 +1,14 @@
 const appendNote = require('./notes.js')
 
-const messageFromArg = process.argv[2] //from=Ali
-console.log(messageFromArg)
-const messageTextArg = process.argv[3] //message=Hi
-console.log(messageTextArg)
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
 
-const fromKeyValue = messageFromArg.split('=') //[from, ali]
-const messageKeyValue = messageTextArg.split('=')//[message, hi]
+const argv = yargs(hideBin(process.argv)).argv
 
-appendNote(fromKeyValue[1], messageKeyValue[1])
+const from = argv.from
+const message = argv.message
+
+console.log
+
+appendNote(from, message)
 

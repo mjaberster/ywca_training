@@ -1,5 +1,8 @@
 const express = require('express')
 const { register, unregister, fetch } = require('./modules/registration')
+const { connect, addStudent, close } = require('./modules/mongo-connector')
+const mongooseConnecter = require('./modules/mongoose-connecter')
+
 
 const app = express()
 
@@ -26,21 +29,22 @@ app.use((req, res, next) => {
 
 // POST /student            Register new student
 app.post('/student', (req, res) => {
-    const student = req.body.student
+    const student = req.body
+    console.log(req.body)
     if (!student) {
         res.status(400).send('Student is missing')
         return
     }
 
-    register(student)
+    mongooseConnecter.createStudent(student)
+
     res.send(`Student has been registered succesfully`)
 
 })
 
 // DELETE /student          Unregister student
-app.delete('/student', (req, res) => {
-    debugger
-    const studentId = req.query.studentId
+app.delete('/student/:studentId', (req, res) => {
+    const studentId = req.params.studentId
     if (!studentId) {
         res.status(400).send(`Student Id was not sent`)
         return
@@ -51,18 +55,19 @@ app.delete('/student', (req, res) => {
     return
 })
 
-app.get('/student/:studentId', (req, res) => {
+app.get('/student/:studentId', async (req, res) => {
 
     const studentId = req.params.studentId
     console.log(studentId)
-    const student = fetch(studentId)
+    const student = await mongooseConnecter.getStudentById(studentId)
+    // const student = fetch(studentId)
     res.json(student).send()
 
 })
 
-app.get('/student', (req, res) => {
-    const students = fetch()
-    res.json(students).send()
+app.get('/student', async (req, res) => {
+    const students = await mongooseConnecter.getAllStudents()
+    res.json(students)
 })
 
 

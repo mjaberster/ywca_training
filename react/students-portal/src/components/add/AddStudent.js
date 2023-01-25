@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../../context/theme-context";
 import './addstudent.css'
 const AddStudent = (props) => {
+
+    const darkTheme = useContext(ThemeContext)
 
     const [studentId, setStudentId] = useState("")
     const [studentName, setStudentName] = useState("")
@@ -21,8 +24,15 @@ const AddStudent = (props) => {
         setStudentName(e.target.value)
     }
 
+    const themeStyle = {
+        backgroundColor: darkTheme ? `#000` : `#fff`,
+        color: darkTheme ? `#fff` : `#000`,
+        padding: `2rem`,
+        margin: `2rem`
+    }
+
     return (
-        <div className="section">
+        <div className="section" style={themeStyle}>
             <label>Student Id</label>
             <input type="text" className="input_field" onChange={changeStudentId} value={studentId} />
             <label>Student Name</label>

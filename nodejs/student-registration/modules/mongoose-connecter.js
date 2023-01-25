@@ -31,6 +31,18 @@ const createStudent = async (student) => {
 
 }
 
+const createUser = async (user) => {
+    const userToCreate = new User(
+        {
+            username: user.username,
+            password: user.password,
+            name: user.name,
+            type: user.type
+        }
+    )
+    const result = await userToCreate.save()
+    return result
+}
 
 const getAllStudents = async () => {
     const result = await Student.find()
@@ -42,18 +54,9 @@ const getStudentById = async (studentId) => {
     return result
 }
 
-const isSignedIn = async (username, password) => {
+const authenticate = async (username, password) => {
     const result = await User.find({ username })
-    if (!result) {
-        return false
-    }
-
-    if (result.password === password) {
-        return true
-    }
-
-    return false
-
+    return result
 }
 
-module.exports = { createStudent, getAllStudents, getStudentById, isSignedIn }
+module.exports = { createStudent, getAllStudents, getStudentById, authenticate, createUser }

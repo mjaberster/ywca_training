@@ -9,14 +9,19 @@ import Error from './components/error/Error';
 import MainNavigation from './components/main-menu/MainNavigation';
 import Student from './components/students/Student';
 import Login from './components/auth/login';
-
+import { ThemeContext } from './context/theme-context';
 
 const App = () => {
 
   const [students, setStudents] = useState([])
 
   useEffect(() => {
+    console.log(students)
+    fetchFromBackend()
 
+  }, [])
+
+  const fetchFromBackend = () => {
     fetch(`http://localhost:3001/student`, {
       "method": "GET"
     })
@@ -28,24 +33,30 @@ const App = () => {
       .catch((err) => {
         console.error(err);
       });
-
-  },
-    [students, setStudents])
-
+  }
 
   let studentsArr = [...students]
 
   const studentCreated = (student) => {
-    studentsArr.push(student)
-    console.log(studentsArr)
-    setStudents(studentsArr)
+    console.log(student)
+    fetch('http://localhost:3001/student', {
+      "method": "POST",
+      "headers": {
+        'Content-Type': 'application/json'
+      },
+      "body": JSON.stringify(student)
+    }).then(fetchFromBackend)
+      .catch(e => console.log(e))
   }
 
   const studentDeleted = (student) => {
-
-    studentsArr = studentsArr.filter(s => s.studentId !== student.studentId)
-    console.log("deleted " + studentsArr)
-    setStudents(studentsArr)
+    fetch(`http://localhost:3001/student/${student.studentId}`, {
+      "method": "DELETE",
+      "headers": {
+        'Content-Type': 'application/json'
+      }
+    }).then(fetchFromBackend)
+      .catch(e => console.log(e))
   }
 
   const [show, setShow] = useState(false)
@@ -59,37 +70,44 @@ const App = () => {
     setShow(true)
   }
 
+  const [darkTheme, setDarkTheme] = useState(false)
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme)
+  }
+
   return (
     <Router>
-      <MainNavigation showLogin={showLogin} />
-      <main>
-        <Routes>
-          <Route path='/' element={
-            <Home>
-              <h1>Welcome to my site</h1>
-            </Home>
-          } />
-          <Route path='/students' element={
-            <>
-              <AddStudent onAdd={studentCreated} />
-              <StudentsList students={students} onDelete={studentDeleted} />
-            </>
-          } />
+      <ThemeContext.Provider value={darkTheme}>
+        <MainNavigation showLogin={showLogin} />
+        <main>
+          <Routes>
+            <Route path='/' element={
+              <Home>
+                <h1>Welcome to my site</h1>
+              </Home>
+            } />
+            <Route path='/students' element={
+              <>
+                <button onClick={toggleTheme}>Toggle theme</button>
+                <AddStudent onAdd={studentCreated} />
+                <StudentsList students={students} onDelete={studentDeleted} />
+              </>
+            } />
 
-          <Route path="/students/:studentId" element={
-            <Student />
-          } />
+            <Route path="/students/:studentId" element={
+              <Student />
+            } />
+            <Route path='/auth' element={
+              <Login />
+            } />
+            <Route path='*' element={<Error />} />
 
-          <Route path='*' element={<Error />} />
+          </Routes>
 
-        </Routes>
-        <Login show={show} closeModal={onCloseModal} />
-      </main>
+        </main>
+      </ThemeContext.Provider>
     </Router>
-    // <div>
-    //   <CConverter />
-    // </div>
-
   )
 }
 

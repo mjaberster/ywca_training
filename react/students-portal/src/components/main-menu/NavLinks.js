@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
@@ -16,7 +16,7 @@ const NavLinks = ({ showLogin }) => {
             <NavLink to="/course">Courses</NavLink>
         </li>
         <li>
-            <button onClick={showLogin}>LOGIN</button>
+            <NavLink to="/auth">Auth</NavLink>
         </li>
     </ul>
 };

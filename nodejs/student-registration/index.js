@@ -2,15 +2,10 @@ const express = require('express')
 const { register, unregister, fetch } = require('./modules/registration')
 const { connect, addStudent, close } = require('./modules/mongo-connector')
 const mongooseConnecter = require('./modules/mongoose-connecter')
-
+const jsonwebtoken = require('jsonwebtoken')
+const privateKey = "sfsfdgt345345jklg!kd"
 
 const app = express()
-
-
-
-// GET /student?id=123      Retrieve student with id 123
-// GET /student             Retrieve all students
-// DELETE /student          Unregister student
 
 app.use(express.json())
 
@@ -25,6 +20,63 @@ app.use((req, res, next) => {
     next()
 })
 
+app.post('/login', (req, res) => {
+    const username = req.headers.username
+    const password = req.headers.password
+    console.log(`username: ${username}`)
+    console.log(`password: ${password}`)
+
+    if (!username || !password) {
+        res.status(400).send('Both username and password are mandatory')
+        return
+    }
+    const user = mongooseConnecter.authenticate(username, password)
+    if (user) {
+        const options = {
+            expiresIn: '1h'
+        }
+        const jwt = jsonwebtoken.sign({ username: user.username, name: user.name, type: user.type }, privateKey, options)
+        res.status(200).send(jwt)
+        return
+    } else {
+        res.status(401).send("User is not allowed")
+        return
+    }
+})
+
+app.post(`/user/register`, async (req, res) => {
+    const user = req.body
+    // const password = user.password
+    // let password = Buffer.from(base64Password, 'base64').toString('ascii');
+    console.log(`>>>> ${JSON.stringify(user)}`)
+    if (!user) {
+        const err = new Error("User must be submited")
+        err.status = 400
+        throw err
+    }
+    try {
+        // user.password = password
+        const addedUser = await mongooseConnecter.createUser(user)
+        if (addedUser) {
+            let token
+            const payload = {
+                userId: user.id,
+                fullName: user.name,
+                type: user.type
+            }
+
+            const options = {
+                expiresIn: '1h'
+            }
+            token = jsonwebtoken.sign(payload, privateKey, options)
+            res.json({ message: "User has been added successfuly", token })
+        } else {
+            res.status(500).json({ message: "An error occured, couldn't create user, please try again later" })
+        }
+    } catch (e) {
+        res.status(500).json({ message: e.message })
+    }
+})
 
 
 // POST /student            Register new student
@@ -85,4 +137,4 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(3001, () => console.log("STARTED!"))
+app.listen(3000, () => console.log("STARTED!"))

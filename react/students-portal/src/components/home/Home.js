@@ -11,6 +11,7 @@ const Home = (props) => {
         divRef.current.backgroundColor = "white"
     }
 
+
     return <>
         <div ref={divRef} style={{ width: "100%" }}
             onMouseOver={changeToRed}

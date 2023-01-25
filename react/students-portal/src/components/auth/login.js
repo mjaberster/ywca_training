@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import './login.css'
-import ReactDOM from "react-dom";
 
-export default function Login({ show, closeModal }) {
+export default function Login() {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
-
-    if (!show) return null
 
 
     const usernameOnChange = (e) => {
@@ -19,7 +16,7 @@ export default function Login({ show, closeModal }) {
 
     return (
         <div className="modal">
-            <div className="overlay" onClick={closeModal}></div>
+            <div className="overlay"></div>
             <div className="content">
                 <div>
                     <span><label>Username: </label></span>
@@ -34,6 +31,5 @@ export default function Login({ show, closeModal }) {
                     <span><button>Register</button></span>
                 </div>
             </div>
-        </div>
-        , document.getElementById("modal"))
+        </div>)
 }               
